@@ -4,6 +4,7 @@ const {mongoose}=require('./db/mongoose');
 const {Users}=require('./models/users');
 
 const app=express();
+var port=process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 //post request handler
@@ -30,6 +31,6 @@ app.get('/users/:id',(req,res)=>{
         res.send(user);
     }).catch((e)=>res.send(e))
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("listening at port 3000");
 })
